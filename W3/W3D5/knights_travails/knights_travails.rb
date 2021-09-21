@@ -1,21 +1,25 @@
 class KnightPathFinder
+  attr_reader :position 
+  attr_accessor :root_node
+
   def initialize(position) #[0, 0]
     @position = position
     @considered_positions = [position]
   end
 
-  def self.root_node
-    PolyTreeNode.new(position)
-  end
-
-  # def build_move_tree
-
+  # def self.root_node
+  #   PolyTreeNode.new(@position)
   # end
 
   def self.valid_moves(position)
-    col, row = position
-	  possible_pos = [[col+2, row+1], [col+2, row-1], [col+1, row-2], [col-1, row-2], [col-2, row-1], [col-2, row+1], [col-1, row+2], [col+1, row+2]]
-    possible_pos.select { |col,row| row >= 0 && row < 8 && col >= 0 && col < 8 } #!visited[col][row]
+    col,row = position
+	  possible_pos = [
+      [col + 2, row + 1], [col + 2, row - 1], 
+      [col + 1, row - 2], [col - 1, row - 2], 
+      [col - 2, row - 1], [col - 2, row + 1], 
+      [col - 1, row + 2], [col + 1, row + 2]
+    ]
+    possible_pos.select { |col,row| row >= 0 && row < 8 && col >= 0 && col < 8 } 
     
   end
 
@@ -27,7 +31,32 @@ class KnightPathFinder
         @considered_positions << pos
       end
     end
+    @considered_positions
   end
+
+  def build_move_tree(end_position)
+    self.root_node = PolyTreeNode.new(@position)
+    queue = []
+    queue << self.root_node
+    path_tree = []
+
+    until queue.empty?
+      curr_pos = queue.shift
+      if curr_pos.value == end_position
+        return node_to_root(end_position)
+      end
+
+      new_move_positions(curr_pos.value).each do |pos|
+        queue << PolyTreeNode.new(pos)
+      end
+    end
+  end
+
+  def node_to_root(node)
+    return node.value if node.parent == nil 
+    [node.value] + node_to_root(node.parent)
+  end
+
 end
 
 
