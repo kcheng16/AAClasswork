@@ -7,7 +7,7 @@ class NullPiece < Piece
   attr_reader :color, :symbol
 
   def initialize
-    @color = "red"
+    @color = "Red"
     @symbol = :O
   end
 
