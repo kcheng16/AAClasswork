@@ -11,10 +11,10 @@ class Piece
 
   end
 
-  def test_board
-    return "yes"
-    #@grid[[0,0]]
-  end
+  # def test_board
+  #   return "yes"
+  #   #@grid[[0,0]]
+  # end
 
 end
 

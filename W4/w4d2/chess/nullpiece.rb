@@ -4,7 +4,18 @@ require "singleton"
 class NullPiece < Piece
   # include Singleton #its own single instance of Nullpc
   include Singleton
+  attr_reader :color, :symbol
+
   def initialize
     @color = "red"
+    @symbol = :O
+  end
+
+  def empty?
+    true
+  end
+
+  def moves
+    nil
   end
 end

@@ -45,17 +45,17 @@ class Board
 
   #end
   
-  # def [](pos)
-  #   row = pos[0]
-  #   col = pos[1]
-  #   @grid[row][col] 
-  # end
+  def [](pos)
+    row = pos[0]
+    col = pos[1]
+    @grid[row][col] 
+  end
 
-  # def []=(pos, val)
-  #   row = pos[0]
-  #   col = pos[1]
-  #   @grid[row][col]= val
-  # end
+  def []=(pos, val)
+    row = pos[0]
+    col = pos[1]
+    @grid[row][col]= val
+  end
 
 
   # def valid_pos?(pos)
@@ -91,8 +91,15 @@ class Board
   # end
 
   def move_piece(start_pos, end_pos)
-    if @grid[start_pos]  
-
+    if self[start_pos] == NullPiece.instance
+      raise "null piece here!"
+    elsif 
+      self[end_pos] != NullPiece.instance
+      raise "occupied!"
+    else
+      self[end_pos], self[start_pos] = self[start_pos], self[end_pos]
+      return "SUCCESS!"
+    end
   end
  
 end
