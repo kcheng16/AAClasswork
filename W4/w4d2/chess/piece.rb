@@ -1,27 +1,25 @@
-require_relative "board"
+# require_relative "board"
 
 class Piece
 
-  # @queen = Queen.new
-  #   @rook = Rook.new
-  #   @knight = Knight.new
   def initialize(color, board, pos)
 
     @color = color
     @board = board  # piece = Piece.new(b, ) #new_board = Board.new
-    @pos = pos #yellow 
+    @pos = pos 
 
   end
 
 
 end
 
-class NullPiece < Piece
-  def initialize("red", board, )
-    super
+# class NullPiece < Piece
+#   # include Singleton #its own single instance of Nullpc
 
-  end
-end
+#   def initialize
+
+#   end
+# end
 
 # new_board = Board.new
 # piece_1 = Piece.new("black", new_board, [1,2])

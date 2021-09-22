@@ -1,11 +1,13 @@
 require_relative "piece"
 
 class Board
-  attr_accessor :grid
+  attr_accessor :grid, :piece
 
   def initialize
-    @grid = Array.new(8) {Array.new(8)}{ NullPiece.instance}}    
-    @piece = Piece.new #current pos 
+    @grid = Array.new(8) {Array.new(8)}    
+    @piece = Piece.new("white", self, [0, 0]) #current pos 
+    #Piece.new("white", self, position)
+    
   end
 
   # i = 0 , 1  => row 1, row 2, 
@@ -69,4 +71,4 @@ class Board
 end
 
 new_board = Board.new
-p new_board
+p new_board.piece.test_board
