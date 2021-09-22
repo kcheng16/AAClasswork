@@ -1,7 +1,8 @@
 # require_relative "board"
+#require "singleton"
 
 class Piece
-
+  attr :pos, :board
   def initialize(color, board, pos)
 
     @color = color
@@ -10,16 +11,14 @@ class Piece
 
   end
 
+  def test_board
+    return "yes"
+    #@grid[[0,0]]
+  end
 
 end
 
-# class NullPiece < Piece
-#   # include Singleton #its own single instance of Nullpc
 
-#   def initialize
-
-#   end
-# end
 
 # new_board = Board.new
 # piece_1 = Piece.new("black", new_board, [1,2])

@@ -1,37 +1,61 @@
 require_relative "piece"
+require_relative "nullpiece"
 
 class Board
   attr_accessor :grid, :piece
 
   def initialize
     @grid = Array.new(8) {Array.new(8)}    
-    @piece = Piece.new("white", self, [0, 0]) #current pos 
-    #Piece.new("white", self, position)
-    
+    #@piece = Piece.new #current pos 
+    @piece = Piece.new("B",self,[0,0])
+    @grid[0][0] = @piece
+    @grid[0][1] = NullPiece.instance
+    # @piece2 = Piece.new("B",self,[0,1])
+    # @piece3 = Piece.new("B",self,[0,2])
+    # @piece4 = Piece.new("B",self,[0,3])
+    # @piece = Piece.new("B",self,[0,4])
+    # @piece = Piece.new("B",self,[0,5])
+    # @piece = Piece.new("B",self,[0,6])
+    # @piece = Piece.new("B",self,[0,7])
+    # @piece = Piece.new("W",self,[6,0])
+    # @piece = Piece.new("W",self,[6,1])
+    # @piece = Piece.new("W",self,[6,2])
+    # @piece = Piece.new("W",self,[6,3])
+    # @piece = Piece.new("W",self,[6,4])
+    # @piece = Piece.new("W",self,[6,5])
+    # @piece = Piece.new("W",self,[6,6])
+    # @piece = Piece.new("W",self,[6,7])
   end
+
+  #def add_piece
 
   # i = 0 , 1  => row 1, row 2, 
              # => row 7, row 8, (length -1 -i)=6 , (length-1-i)
-  def self.initial_populate
-    i = 0
-    while i < 2
-      @grid[i]=@grid[i].map {|ele| ele = Piece.new}
-      @grid[7-i] = @grid[7-i].map {|ele| ele = Piece.new}
-      i += 1
-    end
-  end
-  
-  def [](pos)
-    row = pos[0]
-    col = pos[1]
-    @grid[row][col] 
-  end
+  #def self.initial_populate
 
-  def []=(pos, val)
-    row = pos[0]
-    col = pos[1]
-    @grid[row][col]= val
-  end
+
+    
+  #   #current pos 
+  #   i = 0
+  #   while i < 2
+  #     @grid[i]=@grid[i].map {|ele| ele = NullPiece.instance}
+  #     @grid[7-i] = @grid[7-i].map {|ele| ele = NullPiece.instance}
+  #     i += 1
+  #   end
+
+  #end
+  
+  # def [](pos)
+  #   row = pos[0]
+  #   col = pos[1]
+  #   @grid[row][col] 
+  # end
+
+  # def []=(pos, val)
+  #   row = pos[0]
+  #   col = pos[1]
+  #   @grid[row][col]= val
+  # end
 
 
   # def valid_pos?(pos)
@@ -66,9 +90,13 @@ class Board
   #   #king has valid moves && another piece wants to eat king
   # end
 
-  #def move_
+  def move_piece(start_pos, end_pos)
+    if @grid[start_pos]  
+
+  end
  
 end
 
 new_board = Board.new
-p new_board.piece.test_board
+p new_board
+#p new_board.piece.test_board
