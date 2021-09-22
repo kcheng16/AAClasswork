@@ -23,15 +23,6 @@ class Board
     @board[pos]= piece
   end
 
-  def checkmate?(color)
-    #check if king has valid moves available
-    
-  end
-
-  def in_check?(color) #if in the valid pos
-
-  end
-
   def find_king(color)
     (0...@board.length).each do |i|
       (0...@board.length).each do |j|
@@ -43,7 +34,22 @@ class Board
     return nil   
   end
 
-    
+  def checkmate?(color)
+    #check if WHITE/BLACK king
+    #check if king has valid moves available
+    # king.valid_moves.include?(xy)
+    king_position = find_king(color)
+    @board[king_position].valid_moves.empty? && in_check?(color)
+  end
+
+  def in_check?(color) 
+    #when have no valid moves, wnt to check, if piece is in-chek?
+    #king has valid moves && another piece wants to eat king
+  end
 
   
+
+    
+
+
 end
