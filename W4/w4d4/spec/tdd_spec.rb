@@ -1,6 +1,7 @@
 require 'tdd.rb'
 
 describe Array do
+  # let(:array) { [-1, 0, 2, -2, 1] } #let used like a 2nd subject
   subject(:array) { [-1, 0, 2, -2, 1] }
   subject(:array2) { [1,2,3,4,5] }
   subject(:empty_array) { [] }
@@ -46,7 +47,6 @@ describe Array do
       expect(array2.stock_picker).to eq([0, 4])
     end
 
-
     it "should return nil if array.length is <= 1" do
       expect(empty_array.stock_picker).to be_nil
       expect(array_length_1.stock_picker).to be_nil
@@ -66,6 +66,8 @@ describe Towers do
   end
 
   describe "#won?" do
+  #false, when it should be false
+  # context "when all the discs are in 1 stack" do
     it "numbers of the stack should be in a descending order" do
       won = true
       (0...towers.stacks.length).each do |i|
