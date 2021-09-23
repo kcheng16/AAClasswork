@@ -43,10 +43,9 @@ describe Array do
   describe "#stock_picker" do
     it "should return the indices between the 2 farthest values" do
       expect(array.stock_picker).to eq([0, 2])
-    end
-    it "should return the indices between the 2 farthest values" do
       expect(array2.stock_picker).to eq([0, 4])
     end
+
 
     it "should return nil if array.length is <= 1" do
       expect(empty_array.stock_picker).to be_nil
@@ -56,3 +55,28 @@ describe Array do
 
 
 end
+
+describe Towers do
+  subject(:towers) {Towers.new(5)}
+
+  describe "#initialize" do
+    it "should accept an integer" do
+      expect(towers.num_of_discs).to eq(5)
+    end
+  end
+
+  describe "#won?" do
+    it "numbers of the stack should be in a descending order" do
+      won = true
+      (0...towers.stacks.length).each do |i|
+        (0...towers.stacks[i].length - 1).each do |j|
+          if towers.stacks[i][j] < towers.stacks[i][j+1]
+            won = false 
+          end 
+        end 
+      end
+      expect(towers.won?).to eq(won)
+    end
+  end
+
+end 

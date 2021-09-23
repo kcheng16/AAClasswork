@@ -36,3 +36,44 @@ class Array
     best_days
   end
 end
+
+
+class Towers
+
+  attr_reader :num_of_discs, :stacks
+
+  def initialize(num_of_discs)
+    @num_of_discs = num_of_discs
+    @stacks = Array.new(3){Array.new}
+  end
+
+  def move
+    from_stack = gets.chomp
+    to_stack = gets.chomp
+
+    #first in last out, starting from front of the array 
+    last_disc = @stacks[from_stack].pop
+    @stacks[to_stack].push(last_disc)
+
+    #TODO render the stacks 
+  end
+
+  def won?
+    won = true
+    (0...self.stacks.length).each do |i|
+      (0...self.stacks[i].length - 1).each do |j|
+        if self.stacks[i][j] < self.stacks[i][j+1]
+          won = false 
+        end 
+      end 
+    end
+    won 
+  end
+
+  def render 
+  end
+
+end
+
+
+#Towers of Hanoi should use 3 stacks 
