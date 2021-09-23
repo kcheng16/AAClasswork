@@ -20,4 +20,19 @@ class Array
   def my_transpose
     self.transpose
   end
+
+  def stock_picker
+    return nil if self.length < 2
+    range = 0
+    best_days = []
+    self.each.with_index do |buy_price, buy_day|
+      self.each.with_index do |sell_price, sell_day|
+        if buy_day < sell_day && (sell_price - buy_price) > range
+          range = (sell_price - buy_price)
+          best_days = [buy_day, sell_day]
+        end
+      end
+    end
+    best_days
+  end
 end

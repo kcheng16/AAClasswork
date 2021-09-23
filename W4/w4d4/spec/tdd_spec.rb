@@ -3,6 +3,8 @@ require 'tdd.rb'
 describe Array do
   subject(:array) { [-1, 0, 2, -2, 1] }
   subject(:array2) { [1,2,3,4,5] }
+  subject(:empty_array) { [] }
+  subject(:array_length_1) { [1] }
 
   describe "#my_uniq" do
     it "should remove duplicate elements" do
@@ -36,8 +38,21 @@ describe Array do
     end
 
   end
+  # subject(:array) { [-1, 0, 2, -2, 1] }
+  # subject(:array2) { [1,2,3,4,5] }
+  describe "#stock_picker" do
+    it "should return the indices between the 2 farthest values" do
+      expect(array.stock_picker).to eq([0, 2])
+    end
+    it "should return the indices between the 2 farthest values" do
+      expect(array2.stock_picker).to eq([0, 4])
+    end
 
-  
+    it "should return nil if array.length is <= 1" do
+      expect(empty_array.stock_picker).to be_nil
+      expect(array_length_1.stock_picker).to be_nil
+    end
+  end
 
 
 end
