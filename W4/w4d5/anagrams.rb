@@ -31,6 +31,25 @@ def third_anagram?(str1, str2)
   sort1 == sort2
 end
 
-p third_anagram?("holle", "hello")
-p third_anagram?("hosdflle", "hello")
-p third_anagram?("holle", "hellsdfo")
+# p third_anagram?("holle", "hello")
+# p third_anagram?("hosdflle", "hello")
+# p third_anagram?("holle", "hellsdfo")
+
+# phase 4: O(n)
+def fourth_anagram?(str1, str2)
+  return false if str1.length != str2.length
+
+  hash1 = Hash.new(0)
+  hash2 = Hash.new(0)
+
+  (0...str1.length).each do |i|
+    hash1[str1[i]] += 1
+    hash2[str2[i]] += 1
+  end
+
+  hash1 == hash2
+end
+
+p fourth_anagram?("holle", "hello")
+p fourth_anagram?("hosdflle", "hello")
+p fourth_anagram?("holle", "hellsdfo")
