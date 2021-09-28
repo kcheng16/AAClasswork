@@ -25,6 +25,9 @@ def large_countries
   # Show the names of the countries that have a population of at least
   # 200 million. 200 million is 200,000,000 (eight zeros).
   execute(<<-SQL)
+  select name
+  from countries 
+  where population >= 200000000;
   SQL
 end
 
@@ -32,6 +35,9 @@ def high_population_gdps
   # Give the names and the per capita GDPs of countries with a population
   # of at least 200 million.
   execute(<<-SQL)
+  SELECT name, (gdp/population) AS gdp_per_capita
+  FROM countries
+  WHERE population >= 200000000;
   SQL
 end
 
@@ -40,17 +46,28 @@ def population_in_millions
   # 'South America'. Divide the population by 1,000,000 to get population in
   # millions.
   execute(<<-SQL)
+  SELECT name, (population / 1000000) AS pop_per_mil
+  FROM countries 
+  WHERE continent = 'South America';
   SQL
 end
 
 def name_and_population
   # Show the name and population for 'France', 'Germany', and 'Italy'
   execute(<<-SQL)
+  select name, population
+  from countries
+  where name = 'France' OR name = 'Germany' or name = 'Italy';
   SQL
 end
 
 def united_we_stand
   # Show the countries that have a name that includes the word 'United'
   execute(<<-SQL)
+  select name 
+  from countries
+  where name LIKE 'United%';
   SQL
 end
+
+
