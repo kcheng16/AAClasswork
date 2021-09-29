@@ -1,13 +1,19 @@
+GIT
+  remote: https://github.com/larskanis/sqlite3-ruby
+  revision: 1027509079176fcc4088dcc7638101cde617cf16
+  branch: add-gemspec
+  specs:
+    sqlite3 (1.3.13.20180326210955)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    sqlite3 (1.4.2)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  sqlite3
+  sqlite3!
 
 BUNDLED WITH
-   2.2.26
+   2.2.28

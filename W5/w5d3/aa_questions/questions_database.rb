@@ -1,9 +1,16 @@
-require "sqlite3"
+require 'sqlite3'
 require 'singleton'
 
-class QuestionDatabase < SQLite::Database
+class QuestionDatabase < SQLite3::Database
 include singleton
 
+  def create
+    raise "#{self} already in database" if @id
+  end
+
+  def update
+    raise "#{self} not in database" unless @id
+  end
   
 end
 
