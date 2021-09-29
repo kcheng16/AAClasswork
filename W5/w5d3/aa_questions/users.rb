@@ -28,4 +28,13 @@ class Users #< QuestionDatabase
     @lname = options["lname"]
   end
 
+  def create
+    super
+    QuestionDatabase.instance.execute(<<-SQL, @fname, @lname)
+      INSERT INTO users (fname, lname)
+      VALUES (?, ?)
+    SQL
+    @id = QuestionDatabase.instance.last_insert_row_id
+  end
+
 end

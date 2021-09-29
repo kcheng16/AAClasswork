@@ -53,3 +53,8 @@ INSERT INTO
   users (fname, lname)
 VALUES
   ("Kenny", "Cheng"), ("John", "Smith");
+
+INSERT INTO
+  questions (title, body, author_id)
+VALUES
+  ("John Question", "what time is it?", 2)
