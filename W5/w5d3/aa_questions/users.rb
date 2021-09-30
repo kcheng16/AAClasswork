@@ -29,7 +29,8 @@ class Users #< QuestionDatabase
   end
 
   def create
-    super
+    # raise "#{self} already in database" if @id
+
     QuestionDatabase.instance.execute(<<-SQL, @fname, @lname)
       INSERT INTO users (fname, lname)
       VALUES (?, ?)
