@@ -9,7 +9,7 @@ end
 def bad_years
   # List the years in which a movie with a rating above 8 was not released.
   # Movie.where(yr: 1900..2020,'movies.score < 8').select(:yr) # 
-  Movie.select(:yr).group(:yr).having('movies.score > 8')
+  Movie.select(:yr).group('movies.yr').where('movies.score > 8').having("COUNT(*) = 0")
 end
 
 def cast_list(title)
@@ -32,3 +32,7 @@ def most_supportive
   # Show each actor's id, name and number of supporting roles.
 
 end
+SELECT yr
+FROM movies
+WHERE movies.score > 8 
+GROUP BY movies.yr
