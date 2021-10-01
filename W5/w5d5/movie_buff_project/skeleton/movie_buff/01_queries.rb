@@ -25,8 +25,8 @@ def harrison_ford
   #find the movies with Harrison Ford
   #select NOT-lead actor (ord > 1)
 
-  # Actor.joins(:movies).where()
-  Movie.joins(:actors).where(actors: {name: "Harrison Ford"})
+  #ford = Actor.joins(:castings).where(castings: {ord: 1}, actors: {name: "Harrison Ford"})
+  Movie.joins(:actors).where("actors.name = 'Harrison Ford' AND castings.ord > 1").select(:id, :title)
 
 end
 
