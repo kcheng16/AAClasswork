@@ -45,6 +45,11 @@ def biggest_cast
   # Find the id and title of the 3 movies with the
   # largest casts (i.e most actors)
 
+  #get number of castings of each movie (top 3)
+  #select ID and title
+
+  Movie.joins(:castings).group("movies.id").order('COUNT(castings.id) DESC').limit(3).select(:id, :title)
+
 end
 
 def directed_by_one_of(them)
@@ -56,9 +61,12 @@ def directed_by_one_of(them)
   #
   # ActiveRecord gives us an even better way to write this:
   #
-  # Movie.where(yr: years)
+  # Movie.where(yr: years) 
   #
   # Find the id and title of all the movies directed by one of 'them'.
+  #  them = ['George Lucas', 'Steven Spielberg']
+
+  
 
 end
 
