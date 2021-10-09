@@ -1,0 +1,19 @@
+<tr>
+    <td><%= cat.name %></td>
+    <td><%= cat.color %></td>
+    <td><%= cat.birth_date %></td>
+    <td><%= cat.sex %></td>
+    <td><%= cat.description %></td>
+    <td> 
+        <a href="<%= action == :index ? cat_url(cat) : cats_url %>" >
+          <%= action == :index ? 'Show Cat' : 'All Cats'  %>
+        </a>
+    </td>
+</tr>
+
+<!--
+table tag: container
+table headers: columns
+table rows:
+table data:
+-->

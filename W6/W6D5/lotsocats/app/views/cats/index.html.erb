@@ -1,0 +1,19 @@
+<h1>All the cats!</h1>
+
+<!--<%#= render @cats %>-->
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Birth Date</th>
+        <th>Sex</th>
+        <th>Description</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <% @cats.each do |cat| %>
+      <%= render "cat", cat: cat, action: :index %>
+    <% end %>
+</table>
+
