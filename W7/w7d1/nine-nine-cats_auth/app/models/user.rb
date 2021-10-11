@@ -14,10 +14,12 @@
 #  index_users_on_session_token  (session_token) UNIQUE
 #  index_users_on_username       (username) UNIQUE
 #
+#require 'bcrypt'
 class User < ApplicationRecord
   validates :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: true, uniqueness: true
 
+  #include BCrypt
 
   after_initialize :ensure_session_token
 
@@ -32,9 +34,7 @@ class User < ApplicationRecord
   end
 
   def password=(password)
-    
-    self.password_digest = BCrypt::Password.create(password)
-    
+    self.password_digest = BCrypt::Password.create(password) #we make a bcrypt string looking object
     @password = password
   end
 
