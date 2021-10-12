@@ -18,8 +18,8 @@
       <input  type="submit" value="Log Out!">
     </form>
   <% else %>
-    <a href="new_user_url">Sign Up</a>
-    <a href="new_session_url">Log In</a>
+    <a href="<%= new_user_url %>">Sign Up</a>
+    <a href="<%= new_session_url %>">Log In</a>
   <% end %>
   
     <%= yield %>

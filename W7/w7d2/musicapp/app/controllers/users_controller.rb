@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   def new #sign up
-    @user = User.find(params[:id])
+    @user = User.new
     render :new
   end
 
@@ -12,12 +12,17 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to user_url(@user)
     else
-      flash.now[:errors] = @users.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
       render :new
     end
   end
 
   def user_params
     params.require(:user).permit(:email)
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render :show
   end
 end
