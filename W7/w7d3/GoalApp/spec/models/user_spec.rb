@@ -20,6 +20,14 @@ RSpec.describe User, type: :model do
   describe "SPIRE" do
     let!(:user) { create(:user) }
 
+    describe "self.find_by_credentials" do
+      context "with valid credentials" do
+        it "should return user" do
+          expect(User.find_by_credentials(User.last.username, "password")).to eq(user)
+        end
+      end
+    end
+
     describe "is_valid_password?" do
       context "with a valid password" do
         it "should return true" do
@@ -33,7 +41,5 @@ RSpec.describe User, type: :model do
         end
       end
     end
-
-
   end
 end
