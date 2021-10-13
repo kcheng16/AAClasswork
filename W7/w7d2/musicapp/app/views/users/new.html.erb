@@ -2,8 +2,14 @@
 
 <form action="<%= users_url %>" method="POST"> 
 
+<label for="name">Name</label>
+  <input id="name" type="text" name="user[name]">
+
 <label for="email">Email Address</label>
   <input id="email" type="text" name="user[email]">
+
+<label for="password">Password</label>
+  <input id="password" type="text" name="user[password]">
 
   <input type="submit" value="Create User!">
 </form>

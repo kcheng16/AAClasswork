@@ -4,6 +4,7 @@
 #
 #  id              :bigint           not null, primary key
 #  email           :string           not null
+#  name            :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
@@ -17,7 +18,7 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   validates :password_digest, presence: true, uniqueness: true
-  validates :session_token, :email, presence: true
+  validates :session_token, :email, :name, presence: true
 
   def self.find_by_credential(username, password)
     user = User.find_by(username: username)
@@ -30,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def is_valid_password?(password)
-    password_object = BCrypt::Password.new(self.password_digest)
+    password_object = BCrypt::Password.create(self.password_digest)
     password_object.is_password?(password)
   end
 
