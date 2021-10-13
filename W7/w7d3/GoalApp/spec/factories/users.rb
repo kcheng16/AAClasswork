@@ -9,6 +9,11 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+# Indexes
+#
+#  index_users_on_session_token  (session_token) UNIQUE
+#  index_users_on_username       (username) UNIQUE
+#
 FactoryBot.define do
   factory :user do
     username {Faker::Movies::HarryPotter.character}
