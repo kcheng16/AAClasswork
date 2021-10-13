@@ -17,4 +17,23 @@ RSpec.describe User, type: :model do
     it {should have_many(:comments)}
   end
 
+  describe "SPIRE" do
+    let!(:user) { create(:user) }
+
+    describe "is_valid_password?" do
+      context "with a valid password" do
+        it "should return true" do
+          expect(user.is_valid_password?("password")).to be true
+        end
+      end
+
+      context "with an invalid password" do
+        it "should return true" do
+          expect(user.is_valid_password?("passwo")).to be false
+        end
+      end
+    end
+
+
+  end
 end
