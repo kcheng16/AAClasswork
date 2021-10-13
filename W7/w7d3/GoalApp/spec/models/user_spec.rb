@@ -10,10 +10,11 @@ RSpec.describe User, type: :model do
 
     it {should validate_uniqueness_of(:username)}
     it {should validate_length_of(:password).is_at_least(8)}
+  end
+  
+  describe "Associations" do
+    it {should have_many(:goals)}
+    it {should have_many(:comments)}
+  end
 
-    #comment on goals
-    #user has amny comments
-    #goals belong to user
-    #comment belong to user
-    #goal has many comments
 end
