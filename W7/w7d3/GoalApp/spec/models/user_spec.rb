@@ -1,15 +1,25 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  username        :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-
+# let(:user) {User.new(username: "")}
   describe "Validations" do
     it {should validate_presence_of(:username)}
     it {should validate_presence_of(:password_digest)}
     it {should validate_presence_of(:session_token)}
 
     it {should validate_uniqueness_of(:username)}
-    it {should validate_length_of(:password).is_at_least(8)}
+    it {should validate_length_of(:password).is_at_least(6)}
   end
   
   describe "Associations" do
@@ -24,6 +34,11 @@ RSpec.describe User, type: :model do
       context "with valid credentials" do
         it "should return user" do
           expect(User.find_by_credentials(User.last.username, "password")).to eq(user)
+        end
+      end
+      context "with invalid credentials" do
+        it "should return user" do
+          expect(User.find_by_credentials(User.last.username, "passwo")).to be_nil
         end
       end
     end
