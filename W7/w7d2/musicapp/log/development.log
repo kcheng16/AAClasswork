@@ -1549,3 +1549,28 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 491ms (Views: 488.5ms | ActiveRecord: 0.6ms)
 
 
+Started DELETE "/session" for ::1 at 2021-10-12 17:15:58 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-f7KkX3HgkYLT9aVB-T_Uw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:50
+  [1m[36mUser Exists (3.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."password_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["password_digest", "$2a$12$GYxle2a12h/3ib/LLO2FlO96AOClC.nK02GN.1AVO./YOTOxLEiyO"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:50
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "KFjnySnoDY6h-VsngPpKGw"], ["updated_at", "2021-10-13 00:15:59.046509"], ["id", 3]]
+  ↳ app/models/user.rb:50
+  [1m[35m (10.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:50
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 46ms (ActiveRecord: 17.1ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 17:15:59 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 894ms (Views: 891.7ms | ActiveRecord: 0.3ms)
+
+

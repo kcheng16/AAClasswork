@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  font-family: "Ephesis", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: #eee;
+}
+
+.header {
+  background: red;
+  color: white;
+  display: block;
+  padding: 10px 20px;
+}
+
+/* .header a {
+  
+} */
+.header-logo {
+  float: left;
+  border-right: 1px solid white;
+
+}
+
+.header-list{
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+ul > li {
+  
+  margin-left: 100px;
+  border-left: white solid 1px;
+}
+/* 
+.header-nav {
+  margin: 0 auto;
+  width: 900px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+} */
