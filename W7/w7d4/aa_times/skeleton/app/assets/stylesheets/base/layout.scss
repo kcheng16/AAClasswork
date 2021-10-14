@@ -6,7 +6,10 @@ html {
 }
 
 body {
-	// ...
+	width: 80%;
+	margin: 0 auto;
+	font-family: serif;
+	font-size: 12px;
 }
 
 button {
@@ -46,4 +49,44 @@ hr {
 .hr-top {
 	height: 2px;
 	margin-bottom: 1px;
+}
+
+.main-nav {
+	display: flex;
+	justify-content: space-evenly;
+	padding: 10px;
+
+}
+
+.whole-header {
+	display: flex;
+	justify-content: left;
+}
+
+ul {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
+
+li {
+	font-family: serif;
+	font-size: 100;
+	text-transform: inherit;
+}
+
+li:hover {
+	background-color: lightslategray;
+}
+
+.right-nav {
+	margin: 10px;
+}
+
+
+input[type="submit"] {
+	background-color: blue;
+	color: white;
+	display: flex;
+	margin: 3px;
 }
