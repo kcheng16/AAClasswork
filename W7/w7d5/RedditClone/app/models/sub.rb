@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: subs
+#
+#  id          :bigint           not null, primary key
+#  title       :string           not null
+#  description :string           not null
+#  creator_id  :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 class Sub < ApplicationRecord
 
   validates :title, :description, presence: true
@@ -7,4 +18,5 @@ class Sub < ApplicationRecord
     foreign_key: :creator_id,
     class_name: :User
 
+  has_many :posts
 end
