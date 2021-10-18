@@ -22,4 +22,10 @@ class Post < ApplicationRecord
   belongs_to :user,
   foreign_key: :creator_id,
   class_name: :User
+
+  has_many :subs,
+    foreign_key: :post_id,
+    class_name: :PostSub
+
+
 end

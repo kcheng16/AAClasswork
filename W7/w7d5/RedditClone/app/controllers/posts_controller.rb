@@ -8,9 +8,11 @@ class PostsController < ApplicationController
     else
       flash[:errors] = ['Could not find post']
       redirect_to subs_url
+    end
   end
 
   def new
+    @post = Post.new
     render :new
   end
 
@@ -54,6 +56,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :url, :content)
+    params.require(:post).permit(:title, :url, :content, :sub_ids)
   end
 end
