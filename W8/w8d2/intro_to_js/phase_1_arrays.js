@@ -67,4 +67,22 @@ const twoSum = function (arr) {
 // }
 
 
-console.log(f1([1,2,3,1,2,3]))
+// console.log(f1([1,2,3,1,2,3]))
+//  [ [1,2,3],
+//    [a,b,c]  ]
+// [0...array.length].each do |index1|
+//   subarray = []
+//  [0...array.length].each do |index2|
+
+Array.prototype.transposed = function () {
+  let transposed = [];
+    for (let colidx = 0; colidx <= this.length; colidx++){
+      let subarray = [];
+      for (let rowidx = 0; rowidx <= this.length; rowidx++){
+        subarray.push(this[rowidx][colidx]);
+      }
+      transposed.push(subarray);
+    }
+
+  return transposed;
+}
