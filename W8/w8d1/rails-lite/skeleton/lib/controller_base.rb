@@ -21,7 +21,7 @@ class ControllerBase
   def redirect_to(url)
       @already_built_response = true
       res.status = 302
-      res.location = url
+      res.location = url 
   end
 
   # Populate the response with content.
