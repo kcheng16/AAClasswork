@@ -1,0 +1,16 @@
+/* PHASE 2: Thumbs */
+
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2);
+  grid-gap: 15px;
+}
+
+.thumbs > li > a > img {
+  border-radius: 5px;
+}
+
+.thumbs>li>a>img :before {
+  content: attr(title);
+}

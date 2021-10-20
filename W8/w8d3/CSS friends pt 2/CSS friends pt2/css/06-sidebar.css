@@ -1,0 +1,33 @@
+/* PHASE 0: Sidebar */
+.profile-picture {
+  display: block;
+  border: 10px solid;
+  margin-top: -100px;
+  position: relative;
+}
+
+.profile-nav {
+  font-size:  larger;
+  font-weight: 800;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;  
+  align-items: left;
+}
+
+.profile-nav > a {
+  border-bottom: 1px solid;
+  padding: 5px;
+}
+
+.profile-nav > a:hover {
+  background-color: tomato;
+}
+.profile-nav a:nth-child(5) {
+  border-top: 1px solid;
+}
+
+.profile-nav > p {
+  font-weight: 10;
+  font-size: medium;
+}
