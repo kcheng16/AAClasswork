@@ -16,3 +16,13 @@ const callback = function (ele) {
   console.log(`${ele}!`);
   return `${ele}!`;
 }
+
+Array.prototype.myReduce = function (paramCallback,initialValue) {
+  if (initialValue === null){
+    initialValue = this.shift
+  }
+  this.myEach(ele => {
+    initialValue = paramCallback(initialValue, ele)
+  })
+  return initialValue
+}
