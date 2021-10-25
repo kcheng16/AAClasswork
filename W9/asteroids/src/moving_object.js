@@ -12,5 +12,12 @@ MovingObject.prototype.draw = function (ctx){
   ctx.fill();
 }
 
+MovingObject.prototype.move = function () {
+  let x = canvasEle.width/2;
+  let y = canvasEle.height-30;
+
+  x += this.vel[0];
+  y += this.vel[1];
+}
 
 module.exports = MovingObject
