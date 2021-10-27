@@ -1,20 +1,20 @@
 class View {
   constructor(game, el) {
     this.game = game;
+    this.el = el
+    this.handleClick.bind(this);
     
     this.setupBoard();
-    const ul = document.querySelector("ul")
-    this.el = ul
+    // const ul = document.querySelector("ul")
   }
 
   setupBoard() {
     //create ul & li
-    const classtictactoe = document.querySelector(".ttt");
-    console.log(classtictactoe);
+    // const classtictactoe = document.querySelector(".ttt");
     const ul = document.createElement("UL");
               // let text = document.createTextNode("water");
               // ul.appendChild(text);
-    classtictactoe.appendChild(ul);
+    this.el.appendChild(ul);
   
     // add attribute to li (data-pos) by using game.board @ position
     for (let i = 0; i < 9; i++) {
@@ -31,9 +31,22 @@ class View {
 
   }
   
-  bindEvents() {}
+  bindEvents() { //add event listener
+    this.el.addEventListener("click", this.handleClick(e))
+  }
 
-  handleClick(e) {}
+  handleClick(e) { //checked if what's beeing clicked is an 'li'
+    //bind handleclick
+    
+    let liTarget;
+    
+    if (e.target === document.querySelector("li")){
+      liTarget = e.target;
+    }
+    console.log( "handled click")
+    this.makeMove(liTarget);
+
+  }
 
   makeMove(square) {}
 
