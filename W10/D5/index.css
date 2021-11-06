@@ -1,7 +1,12 @@
-body {
+
+#time {
   font-family: 'Roboto', sans-serif;
+  font-size: 5vw;
+  border: solid black 2px;
+  background-color: aqua;
 }
 
-.main {
-
+#time > ul > li{
+  display: flex;
+  justify-content: space-between;
 }

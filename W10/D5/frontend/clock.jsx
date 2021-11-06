@@ -9,23 +9,30 @@ class Clock extends React.Component{
   }
 
   componentDidMount(){
-    this.interval = setInterval(
-      this.tick
-      , 1000);
+    this.interval = setInterval(this.tick, 1000);
   }
 
   componentWillUnmount(){
     clearInterval(this.interval);
   }
 
-  render(){
-    return (
-      <h1>{this.state.time.getHours()}:{this.state.time.getMinutes()}:{this.state.time.getSeconds()}</h1>
-    )
-  }
-
   tick(){
     this.setState({time: new Date()});
+  }
+
+  render(){
+    return (
+      <h1 id="time">
+        <ul>
+          <li>
+            <h2>Time: </h2> {this.state.time.getHours()}:{this.state.time.getMinutes()}:{this.state.time.getSeconds()}
+          </li>
+          <li>
+          <h2>Date:</h2> {this.state.time.toDateString()}
+          </li>
+        </ul>
+      </h1>
+    )
   }
 }
 
