@@ -1,0 +1,141 @@
+/* PHASE 12: Modal */
+.modal-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-form {
+  position: absolute;
+
+  top: 30%;
+  left: 40%;
+  z-index: 2;
+
+  background-color: white;
+  width: 30vw;
+  height: 30vh;
+
+
+}
+
+.modal-form > h1 {
+  font-size: xx-large;
+  margin: 0;
+  padding: 0;
+
+  position: absolute;
+  top: 1vh;
+  left: 1vw;
+}
+
+.modal-form > h2 {
+  font-size: large;
+  font-weight: bold;
+
+  position: absolute;
+  top: 4vh;
+  left: 1vw;
+}
+
+.x {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+
+  border: 2px solid black;
+  border-radius: 30%;
+
+  width: 30px;
+  height: 30px;
+  color: red;
+  font-size: xx-large;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* email head */
+.modal-form > .email {
+
+  position: absolute;
+  top: 8vh;
+  left: 10px;
+  font-weight: bolder;
+}
+
+/* email input */
+.modal-form > #email{
+  border: 1px solid black;
+  border-radius: 5px;
+
+  margin: 5px;
+  margin-top: 0px;
+
+  width: 90%;
+  height: 10%;
+
+  position: absolute;
+  top: 10vh;
+  left: 5px;
+}
+
+/* password head */
+.modal-form > .password {
+  position: absolute;
+  top: 15vh;
+  left: 10px;
+
+  font-weight: bolder;
+}
+
+.modal-form > #password {
+  border: 1px solid black;
+  border-radius: 5px;
+
+  margin: 5px;
+  margin-top: 0px;
+
+  width: 90%;
+  height: 10%;
+
+  position: absolute;
+  top: 17vh;
+  left: 5px;
+}
+
+.modal-form > .buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  margin-top: 250px;
+}
+
+.signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(27, 238, 27);
+
+  color: white;
+  font-weight: bolder;
+
+  border: 2px black solid;
+  border-radius: 5px;
+  box-shadow: 0px 3px #888888;
+
+  width: 8vw;
+  height: 4vh;
+}
+
+.cancel {
+  font-weight: bolder;
+}
