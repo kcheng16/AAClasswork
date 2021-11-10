@@ -1,5 +1,5 @@
 
-const allTodos = (state) =>{
+const allTodos = (state) => {
   let allTodos = Object.values(state.todos);
   return allTodos;
 }
