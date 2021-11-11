@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
     return {
         todos: allTodos(state)
     } 
-}
+} 
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -14,8 +14,10 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(
+const TodoListContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(TodoList);
+
+export default TodoListContainer;
 
