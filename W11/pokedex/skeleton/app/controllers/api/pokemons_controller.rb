@@ -6,7 +6,7 @@ class Api::PokemonsController < ApplicationController
 
   def show
     @pokemon = Pokemon.find(params[:id])
-
+    render :show
     # render json: @pokemon
   end
 end
