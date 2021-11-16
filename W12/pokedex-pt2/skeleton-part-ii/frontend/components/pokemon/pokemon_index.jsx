@@ -20,7 +20,7 @@ class PokemonIndex extends React.Component{
         //   <img src={poke.imageUrl}/>
         //   <span>{poke.name}</span>
         // </li>
-        <PokemonIndexItem pokemonId={pokemon.id} pokemon={pokemon} />
+        <PokemonIndexItem key={pokemon.id} pokemon={pokemon} />
       ))}
       </ul>
     </section>
