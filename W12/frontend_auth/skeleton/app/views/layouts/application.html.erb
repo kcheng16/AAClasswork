@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlueBird</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    <%# allows for user to STAY logged in, even if they refreh the page %>
+    <% if current_user %>
+    <script>
+    window.currentUser = { //why not = current_user??
+      "id": <%= current_user.id %>,//=============not string cause integer
+      "username": "<%= current_user.username %>",
+      "email": "<%= current_user.email %>",
+    }
+    </script>
+    <% end %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
